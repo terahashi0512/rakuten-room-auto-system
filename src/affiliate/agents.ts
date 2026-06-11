@@ -42,8 +42,11 @@ const VIRAL_CRAFT = `【バズる投稿の鉄則（必ず全て反映）】
    （使えるチェックリスト/判断基準/手順/具体例を必ず渡し切る）。
 4. 価値を出し切った最後に「ここまでで足りない“あなた専用の最適解”は無料面談で」と
    自然に橋渡し（売り込み感ゼロ。煽らない）。
-5. 「必ず稼げる」「年間〇〇万円稼げる」等、収入・効果を約束/断定する表現はタイトルにも本文にも書かない（景表法・特商法）。
-   数字を使うなら「手順・時間・件数・割合」など検証可能なものに限り、成果には個人差がある前提で書く。`;
+5. 「必ず稼げる」「年間〇〇万円稼げる」等、収入・効果を約束/断定する表現は書かない（景表法・特商法）。
+   さらに「月収50万」「年収100万」等の具体的な収入額を“成果”として書かない。
+   数字を使うなら「手順数・所要時間・件数・割合・期間」など検証可能なものに限る。
+6. 必ず自然な日本語のみで書く。中国語・英語・他言語の単語や漢字（例: 獨学, 如果, 兴味）を混在させない。
+7. 同じ言い回しの使い回しを避け、投稿ごとに切り口・語彙・例を変える。`;
 
 function avoidBlock(avoid: string[]): string {
   if (avoid.length === 0) return "";
@@ -474,7 +477,7 @@ ${ctx.ctaGuide}
 - thread: X用スレッドの配列（5〜9ツイート、各最大120字程度）
 - cta: ${ctx.destLabel}への誘導文`;
     try {
-      const items = await generateItems<Article>(prompt, { temperature: 0.85, maxTokens: 8000 });
+      const items = await generateItems<Article>(prompt, { temperature: 0.85, maxTokens: 5500 });
       const a = items[0];
       if (a && (a.body || (Array.isArray(a.thread) && a.thread.length))) {
         a.format = a.format || p.format;

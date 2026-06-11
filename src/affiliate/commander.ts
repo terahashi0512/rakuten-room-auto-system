@@ -91,11 +91,12 @@ ${sampleText.slice(0, 3500)}
     const credibility = clampScore(r.credibility, 70);
     const completeness = clampScore(r.completeness ?? countRatio * 100, Math.round(countRatio * 100));
     const valueConcreteness = clampScore(r.valueConcreteness ?? completeness, completeness);
-    let verdict: Verdict = r.verdict === "revise" ? "revise" : "approve";
-    // 信憑性・完成度・件数のいずれかが基準未満なら強制 revise
-    if (credibility < 60 || completeness < 60 || items.length < expectedMin) verdict = "revise";
-    // 価値重視フローは具体性が低ければ revise
-    if (valueFocused && valueConcreteness < 70) verdict = "revise";
+    // 既定は承認。明確に低品質な場合のみ再生成（無料枠のレート消費を抑えるため緩めに）
+    let verdict: Verdict = "approve";
+    // 信憑性が著しく低い／件数が大きく不足／出力が空 のときは再生成
+    if (credibility < 55 || items.length === 0 || items.length < expectedMin * 0.6) verdict = "revise";
+    // 価値重視フローは具体性が著しく低ければ再生成
+    if (valueFocused && valueConcreteness < 55) verdict = "revise";
     return {
       flow,
       credibility,

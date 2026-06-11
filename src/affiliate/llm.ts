@@ -12,9 +12,9 @@ dotenv.config();
 const GROQ_API_KEY = process.env.GROQ_API_KEY ?? "";
 const MODEL_NAME = process.env.AFFILIATE_LLM_MODEL ?? "llama-3.3-70b-versatile";
 
-const REQUEST_INTERVAL_MS = 1500;
-const MAX_RETRIES = 4;
-const RETRY_BASE_DELAY_MS = 4000;
+const REQUEST_INTERVAL_MS = 2500;
+const MAX_RETRIES = 5;
+const RETRY_BASE_DELAY_MS = 5000;
 
 export function isLlmConfigured(): boolean {
   return GROQ_API_KEY.length > 0;

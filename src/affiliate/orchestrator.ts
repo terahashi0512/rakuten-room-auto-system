@@ -256,7 +256,7 @@ export async function runCampaign(offer: Offer, opts: RunOptions = {}): Promise<
     "⑪長文記事",
     1,
     { profile },
-    () => runArticles(ctx, 3),
+    () => runArticles(ctx, 2),
     (items) => items.map((a) => `[${a.pattern}] ${a.title}\n${((a.body || a.thread?.join("\n")) ?? "").slice(0, 600)}`).join("\n---\n"),
     onProgress,
     true
