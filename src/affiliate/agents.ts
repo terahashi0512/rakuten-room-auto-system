@@ -165,18 +165,20 @@ const COLLECT_TYPES = [
 export async function runCollectPosts(ctx: CampaignContext, total = 30, avoid: string[] = []): Promise<CollectPost[]> {
   const build = (n: number, produced: CollectPost[]): string =>
     `あなたはXで見込み客を集める投稿作成のプロです。
-以下の商品ジャンルの無料面談に送客するために、X投稿を${n}個作ってください。
+以下の商品ジャンルの見込み客を集め、${ctx.destLabel}へ送客するためのX投稿を${n}個作ってください。
 
 商品ジャンル：${ctx.chosenGenre.genre}
 ターゲット：${ctx.chosenTarget.name}（${ctx.chosenTarget.pain}）
-無料面談で得られること：${ctx.consultBenefits}
+登録/相談で得られること：${ctx.consultBenefits}
 
 ${VIRAL_CRAFT}
+
+${ctx.ctaGuide}
 
 条件：
 ・売り込み感を出さない
 ・読者に「自分のことだ」と思わせた上で、具体的な解決のヒントまで渡し切る
-・無料面談に興味を持たせる
+・${ctx.destLabel}に興味を持たせる
 ・固有名詞/数字/手順/チェックリストを入れ、保存・スクショされる価値にする
 ・${POST_RULE}
 
@@ -187,7 +189,7 @@ ${COLLECT_TYPES.join(" / ")}
 - type: 投稿の型
 - text: 投稿文（鉄則を反映。具体的な数字/手順/序列を含める）
 - psychology: 狙っている心理
-- consultLink: 無料面談につながる理由${avoidBlock([...avoid, ...produced.map((p) => p.text)])}`;
+- consultLink: ${ctx.destLabel}につながる理由${avoidBlock([...avoid, ...produced.map((p) => p.text)])}`;
   return generateItemsBatched<CollectPost>(build, total, 10, { temperature: 0.92, maxTokens: 5000 });
 }
 
@@ -195,26 +197,28 @@ ${COLLECT_TYPES.join(" / ")}
 // フロー5: 無料面談へ誘導する固定ポスト 10個
 // ──────────────────────────────────────────────
 export async function runPinnedPosts(ctx: CampaignContext, avoid: string[] = []): Promise<PinnedPost[]> {
-  const prompt = `あなたはXから無料面談へ送客する導線設計のプロです。
-以下の商品に興味がある見込み客を、自然に無料面談へ誘導する固定ポストを10個作ってください。
+  const prompt = `あなたはXから${ctx.destLabel}へ送客する導線設計のプロです。
+以下の商品に興味がある見込み客を、自然に${ctx.destLabel}へ誘導する固定ポストを10個作ってください。
 
 商品ジャンル：${ctx.chosenGenre.genre}
 ターゲット：${ctx.chosenTarget.name}（${ctx.chosenTarget.pain}）
-無料面談の内容：${ctx.consultContent}
+相談/特典の中身：${ctx.consultContent}
 
 ${VIRAL_CRAFT}
 
+${ctx.ctaGuide}
+
 条件：
-・「なぜ無料で公開/相談を受けているのか」をリフレーム（相手の遠回りを指摘）して語る型を必ず含める
-・悩みから入り、理想の未来と“相談で得られる具体的中身”を見せる
+・「なぜ無料で公開/配布しているのか」をリフレーム（相手の遠回りを指摘）して語る型を必ず含める
+・悩みから入り、理想の未来と“受け取れる具体的中身”を見せる
 ・怪しく見えない／今すぐ行動したくなる
 ・${POST_RULE}
 
 各要素を持つオブジェクトを10件:
-- text: 固定ポスト本文（鉄則を反映。冒頭フック必須）
+- text: 固定ポスト本文（鉄則を反映。冒頭フック必須。末尾は${ctx.destLabel}への誘導）
 - openingAim: 冒頭の狙い
 - audience: 刺さるターゲット
-- consultReason: 無料面談に誘導できる理由
+- consultReason: ${ctx.destLabel}に誘導できる理由
 - improvement: 改善ポイント${avoidBlock(avoid)}`;
   return generateItems<PinnedPost>(prompt, { temperature: 0.9, maxTokens: 4000 });
 }
@@ -223,28 +227,29 @@ ${VIRAL_CRAFT}
 // フロー6: DM誘導テンプレート（5パターン）
 // ──────────────────────────────────────────────
 export async function runDmTemplates(ctx: CampaignContext): Promise<DmTemplate[]> {
-  const prompt = `あなたはXのDMで無料面談へ誘導するセールスライターです。
-以下の見込み客に対して、自然に無料面談を案内するDM文を作ってください。
+  const prompt = `あなたはXのDMで${ctx.destLabel}へ誘導するセールスライターです。
+以下の見込み客に対して、自然に${ctx.destLabel}を案内するDM文を作ってください。
 
 商品ジャンル：${ctx.chosenGenre.genre}
 相手の悩み：${ctx.chosenTarget.pain}
 相手の状況：${ctx.chosenTarget.name}（${ctx.chosenTarget.ageRange}）
-無料面談で話せる内容：${ctx.consultContent}
+案内する中身：${ctx.consultContent}
+
+${ctx.ctaGuide}
 
 条件：
 ・いきなり売り込まない
 ・相手の悩みに寄り添う
 ・押し売り感を出さない
-・返信しやすい
-・短文で自然
-・無料面談に進みたくなる
+・返信しやすい／短文で自然
+・${ctx.destLabel}に進みたくなる
 ・怪しい表現を避ける
 
 次の5パターンを、stage と text を持つオブジェクトとして5件:
 - stage="初回DM"
 - stage="興味を示した時の返信"
 - stage="迷っている人への返信"
-- stage="日程調整に進める文章"
+- stage="${ctx.destLabel}へ案内する文章"
 - stage="既読スルー後の追撃DM"
 各 text にDM本文を入れる。`;
   return generateItems<DmTemplate>(prompt, { temperature: 0.85, maxTokens: 2500 });
@@ -269,10 +274,12 @@ export async function runEducationPosts(ctx: CampaignContext, total = 20, avoid:
 
 ${VIRAL_CRAFT}
 
+${ctx.ctaGuide}
+
 条件：
 ・商品名を出さない
 ・「独学の落とし穴」等を“具体例・数字・チェックリスト”で示し、読者がその場で気づける
-・放置リスクとプロに相談する価値を、具体的なbefore→afterで伝える
+・放置リスクとプロ/環境に頼る価値を、具体的なbefore→afterで伝える
 ・不安を煽りすぎない／初心者にもわかりやすい
 ・${POST_RULE}
 
@@ -284,7 +291,7 @@ ${EDU_TYPES.join(" / ")}
 - text: 投稿文（鉄則を反映。具体例・序列・手順を含める）
 - aim: 投稿の狙い
 - emotion: 読者に起こしたい感情
-- consultBridge: 無料面談へのつなげ方${avoidBlock([...avoid, ...produced.map((p) => p.text)])}`;
+- consultBridge: ${ctx.destLabel}へのつなげ方${avoidBlock([...avoid, ...produced.map((p) => p.text)])}`;
   return generateItemsBatched<EducationPost>(build, total, 10, { temperature: 0.9, maxTokens: 5000 });
 }
 
@@ -292,31 +299,36 @@ ${EDU_TYPES.join(" / ")}
 // フロー8: オファー文改善
 // ──────────────────────────────────────────────
 export async function runOfferCopy(ctx: CampaignContext): Promise<OfferCopy[]> {
-  const current = ctx.offer.consultContent || ctx.consultContent;
-  const prompt = `あなたは無料面談の申込率を高めるオファー設計のプロです。
-以下の無料面談オファーを、より魅力的に見える形に改善してください。
+  const current =
+    ctx.funnel.type === "line"
+      ? `無料特典「${ctx.funnel.leadMagnet}」をLINE登録で配布`
+      : ctx.funnel.type === "blog"
+        ? `ブログ「${ctx.funnel.brand}」で詳しい手順を公開`
+        : ctx.offer.consultContent || ctx.consultContent;
+  const prompt = `あなたは${ctx.destLabel}の申込/登録率を高めるオファー設計のプロです。
+以下のオファーを、より魅力的に見える形に改善してください。
 
 現在のオファー：${current}
 ターゲット：${ctx.chosenTarget.name}（${ctx.chosenTarget.pain}）
-面談で提供できる価値：${ctx.consultBenefits}
+提供できる価値：${ctx.consultBenefits}
+
+${ctx.ctaGuide}
 
 条件：
 ・無料なのに価値が高く見える
-・怪しく見えない
-・誰に向けたものか明確
-・申し込む理由がある
-・今すぐ申し込む理由がある
+・怪しく見えない／誰に向けたものか明確
+・今すぐ申し込む（登録する）理由がある
 ・押し売り感がない
-・Xの固定ポストやDMで使える
+・Xの固定ポストやDM・プロフィールで使える
 
 次の要素を持つオブジェクトを1件:
-- consultName: 無料面談の名前
+- consultName: オファー（${ctx.destLabel}）の名前
 - catchCopy: 一言キャッチコピー
-- applyMerit: 申し込むメリット
-- notApplyDemerit: 申し込まないデメリット
+- applyMerit: 申し込む/登録するメリット
+- notApplyDemerit: 申し込まない/登録しないデメリット
 - targetWho: 対象者
 - notTargetWho: 対象外の人
-- applyFunnelText: 申込導線の文章
+- applyFunnelText: ${ctx.destLabel}への導線の文章
 - pinnedShort: X固定ポスト用の短文
 - dmShort: DM用の短文
 - profileShort: プロフィール用の短文`;
@@ -429,18 +441,20 @@ export async function runArticles(ctx: CampaignContext, count = 3): Promise<Arti
 商品ジャンル：${ctx.chosenGenre.genre}
 ターゲット：${ctx.chosenTarget.name}（${ctx.chosenTarget.pain}）
 読者が解決したい悩み：${ctx.chosenGenre.pain}
-無料面談で得られること：${ctx.consultBenefits}
+登録/相談で得られること：${ctx.consultBenefits}
 
 【この記事の型】${p.pattern}
 ${p.brief}
 
 ${VIRAL_CRAFT}
 
+${ctx.ctaGuide}
+
 【記事の必須要件】
 - タイトルは思わずクリックしたくなるもの（数字・結果・ベネフィットを入れる）
 - 記事だけで悩みが大きく前進する“具体的な価値”を出し切る（抽象論NG）
 - 本文は1800〜3000字程度。Markdownで見出し(##)・箇条書き・番号付き手順を使い、スマホで読みやすく
-- 商品名は押し出さず、最後に「個別最適化は無料面談で」と自然に誘導
+- 商品名は押し出さず、最後に「個別最適化・続きは${ctx.destLabel}で」と自然に誘導
 - 誇大表現・収入/効果の保証はしない。**タイトルや本文に「年間〇〇万円」等の収入額の約束/断定を使わない**
   （数字は手順・時間・件数・割合など検証可能なものに限り、成果には個人差がある前提で書く）
 
@@ -449,7 +463,7 @@ ${VIRAL_CRAFT}
 - thread は 5〜9個の文字列配列。各ツイートは本文のみ（番号は付けない）で、1ツイート最大120字程度
 - 1本目は単体で伸びる強いフック（断定×数字 / 結果公開 / 常識破壊 のいずれか）
 - 2本目以降で具体的な手順・序列・数字・before→after を小分けに提示し、各ツイート単体でも価値が分かる
-- 最後のツイートは無料面談への自然なCTA（売り込み感ゼロ）
+- 最後のツイートは${ctx.destLabel}への自然なCTA（売り込み感ゼロ。本文に直リンクは貼らずプロフ/固定へ誘導）
 
 次の要素を持つオブジェクトを1件だけ items に入れて返す:
 - format: "${p.format}"
@@ -458,7 +472,7 @@ ${VIRAL_CRAFT}
 - lead: 冒頭フック（1〜3行）
 - body: Markdown本文（1800〜3000字、note/ブログ用）
 - thread: X用スレッドの配列（5〜9ツイート、各最大120字程度）
-- cta: 無料面談への誘導文`;
+- cta: ${ctx.destLabel}への誘導文`;
     try {
       const items = await generateItems<Article>(prompt, { temperature: 0.85, maxTokens: 8000 });
       const a = items[0];

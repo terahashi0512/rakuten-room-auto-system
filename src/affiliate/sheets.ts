@@ -224,6 +224,7 @@ function buildRows(r: CampaignResult): Matrix {
   rows.push([`案件: ${r.offer.name}`]);
   rows.push([`生成日時: ${r.generatedAt}`]);
   rows.push([`指揮官 総合評価: 信憑性 ${r.overallCredibility} / 完成度 ${r.overallCompleteness}`]);
+  rows.push([`誘導先(CTA):`, `${r.destLabel}${r.funnel.lineUrl && r.funnel.type === "line" ? ` / LINE: ${r.funnel.lineUrl}` : ""}${r.funnel.type === "blog" ? ` / ${r.funnel.blogUrl}` : ""}`]);
   rows.push([`指揮官 総合所見:`, r.commanderSummary]);
   rows.push([`選定ジャンル:`, r.genres.items.find((g) => g.fitScore)?.genre ?? r.profile.genre]);
   rows.push([`選定ターゲット:`, r.targets.items[0]?.name ?? ""]);
@@ -355,6 +356,7 @@ export function buildMarkdown(r: CampaignResult): string {
 
   L.push(`# 🎯 ${r.offer.name} — X送客キャンペーン`);
   L.push(`生成: ${r.generatedAt}`);
+  L.push(`\n**誘導先(CTA)**: ${r.destLabel}${r.funnel.type === "line" && r.funnel.lineUrl ? ` （${r.funnel.lineUrl}）` : ""}${r.funnel.type === "blog" ? ` （${r.funnel.blogUrl}）` : ""}`);
   L.push(`\n**指揮官 総合評価**: 信憑性 ${r.overallCredibility} / 完成度 ${r.overallCompleteness}`);
   L.push(`\n> ${r.commanderSummary.replace(/\n/g, "\n> ")}`);
   L.push(`\n選定ジャンル: **${r.genres.items.find((g) => g.fitScore)?.genre ?? r.profile.genre}** / 選定ターゲット: **${r.targets.items[0]?.name ?? ""}** / コンセプト: **${r.concepts.items[0]?.concept ?? ""}**`);

@@ -29,6 +29,7 @@ import {
 import { pickConcept, pickGenre, pickTarget, reviewFlow, summarize } from "./commander";
 import { generateImagePrompts } from "./imagePrompts";
 import { pace } from "./llm";
+import { buildCtaGuide, loadFunnel } from "./funnel";
 
 export interface RunOptions {
   /** 重複回避のための既出投稿テキスト（過去のタブ等から取得） */
@@ -125,6 +126,12 @@ export async function runCampaign(offer: Offer, opts: RunOptions = {}): Promise<
   targets.items = targetScored;
   await pace();
 
+  // 誘導先（CTA）設定を解決
+  const funnel = loadFunnel();
+  const consultContent = offer.consultContent || profile.consultContent;
+  const { guide: ctaGuide, destLabel } = buildCtaGuide(funnel, consultContent, offer.funnelType);
+  onProgress?.("誘導先", `${destLabel} に誘導する設計で生成します`);
+
   // コンテキスト確定
   const ctx: CampaignContext = {
     offer,
@@ -132,8 +139,11 @@ export async function runCampaign(offer: Offer, opts: RunOptions = {}): Promise<
     chosenGenre,
     chosenTarget,
     chosenConcept: {} as CampaignContext["chosenConcept"],
-    consultContent: offer.consultContent || profile.consultContent,
+    consultContent,
     consultBenefits: offer.consultBenefits || profile.consultBenefits,
+    funnel,
+    ctaGuide,
+    destLabel,
   };
 
   // ── フロー3: アカウントコンセプト → ベスト選定 ──
@@ -273,6 +283,8 @@ export async function runCampaign(offer: Offer, opts: RunOptions = {}): Promise<
   return {
     offer,
     profile,
+    funnel,
+    destLabel,
     generatedAt: new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" }),
     genres,
     targets,

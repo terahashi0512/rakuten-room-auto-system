@@ -18,6 +18,24 @@
   </header>
 
   <main class="container">
+    <!-- 誘導先(CTA)設定 -->
+    <section class="card">
+      <h2>🎯 誘導先（CTA）設定</h2>
+      <p class="hint">投稿・DM・記事の最後の誘導先です。LINE登録を軸にすると、X→LINE→教育→案件の2ステップで伸びます。</p>
+      <label>誘導先タイプ
+        <select id="funnelType">
+          <option value="line">LINE登録を軸に（推奨）</option>
+          <option value="blog">ブログ記事を軸に</option>
+          <option value="consult">無料面談に直</option>
+        </select>
+      </label>
+      <label>公式LINEの友だち追加URL<input type="text" id="funnelLine" placeholder="https://lin.ee/xxxx" /></label>
+      <label>無料特典（リードマグネット）名<input type="text" id="funnelMagnet" placeholder="AI副業 最初の30日ロードマップ＋プロンプト30選" /></label>
+      <label>ブログURL<input type="text" id="funnelBlog" placeholder="https://meganeojisanblog.com/ai-job/" /></label>
+      <label>ブランド名<input type="text" id="funnelBrand" placeholder="M.O.Laboratory" /></label>
+      <button id="saveFunnelBtn" class="btn-sub" type="button">誘導先設定を保存</button>
+    </section>
+
     <!-- 案件入力 -->
     <section class="card">
       <h2>① 案件名を入力</h2>

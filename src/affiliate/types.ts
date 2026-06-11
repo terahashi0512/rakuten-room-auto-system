@@ -7,6 +7,24 @@
  */
 
 // ──────────────────────────────────────────────
+// 誘導先（CTA）設定 — LINE登録 / ブログ記事 / 無料面談 を切り替え
+// ──────────────────────────────────────────────
+export type FunnelType = "line" | "blog" | "consult";
+
+export interface FunnelConfig {
+  /** 誘導先の主軸 */
+  type: FunnelType;
+  /** 公式LINEの友だち追加URL */
+  lineUrl: string;
+  /** 代表ブログURL */
+  blogUrl: string;
+  /** 無料特典（リードマグネット）名 */
+  leadMagnet: string;
+  /** ブランド名（ブログ/発信者名） */
+  brand: string;
+}
+
+// ──────────────────────────────────────────────
 // 案件（アフィリエイト商材）定義 — 融通がきくよう全て任意項目
 // ──────────────────────────────────────────────
 export interface Offer {
@@ -34,6 +52,8 @@ export interface Offer {
   goalRevenue?: string;
   /** その他メモ・注意事項 */
   notes?: string;
+  /** 誘導先の上書き（未指定なら全体設定 affiliate.config.json に従う） */
+  funnelType?: FunnelType;
 }
 
 /**
@@ -227,6 +247,12 @@ export interface CampaignContext {
   chosenConcept: ConceptCandidate;
   consultContent: string;
   consultBenefits: string;
+  /** 誘導先設定 */
+  funnel: FunnelConfig;
+  /** プロンプトに注入するCTA指示 */
+  ctaGuide: string;
+  /** CTAの誘導先ラベル（例: プロフィールのLINE / ブログ記事 / 無料面談） */
+  destLabel: string;
 }
 
 export interface FlowOutput<T> {
@@ -239,6 +265,10 @@ export interface FlowOutput<T> {
 export interface CampaignResult {
   offer: Offer;
   profile: OfferProfile;
+  /** 誘導先設定 */
+  funnel: FunnelConfig;
+  /** 誘導先ラベル（プロフィールのLINE等） */
+  destLabel: string;
   generatedAt: string;
   genres: FlowOutput<GenreCandidate>;
   targets: FlowOutput<TargetCandidate>;

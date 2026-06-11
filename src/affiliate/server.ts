@@ -13,6 +13,8 @@ import express from "express";
 import path from "path";
 import { randomUUID } from "crypto";
 import { loadOffers, resolveOffer, saveOffer } from "./offers";
+import { loadFunnel, saveFunnel } from "./funnel";
+import type { FunnelConfig } from "./types";
 import { runCampaign } from "./orchestrator";
 import { getExistingPosts, isSheetsConfigured, writeCampaign, type WriteResult } from "./sheets";
 import { isLlmConfigured } from "./llm";
@@ -94,6 +96,18 @@ export function createAffiliateApp(): express.Application {
       sheets: isSheetsConfigured(),
       time: new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" }),
     });
+  });
+
+  // 誘導先(CTA)設定
+  app.get("/api/affiliate/funnel", (_req, res) => {
+    res.json(loadFunnel());
+  });
+  app.post("/api/affiliate/funnel", (req, res) => {
+    const cur = loadFunnel();
+    const body = req.body as Partial<FunnelConfig>;
+    const merged: FunnelConfig = { ...cur, ...body };
+    saveFunnel(merged);
+    res.json(merged);
   });
 
   // 案件一覧

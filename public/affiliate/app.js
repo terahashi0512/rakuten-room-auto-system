@@ -20,6 +20,14 @@ async function init() {
     $('statusText').textContent = '接続エラー';
   }
   try {
+    const f = await api('/api/affiliate/funnel');
+    $('funnelType').value = f.type || 'line';
+    $('funnelLine').value = f.lineUrl || '';
+    $('funnelMagnet').value = f.leadMagnet || '';
+    $('funnelBlog').value = f.blogUrl || '';
+    $('funnelBrand').value = f.brand || '';
+  } catch (_) {}
+  try {
     const offers = await api('/api/affiliate/offers');
     const dl = $('offerList');
     dl.innerHTML = '';
@@ -48,6 +56,24 @@ function collectOfferFields() {
   Object.keys(f).forEach((k) => f[k] === undefined && delete f[k]);
   return f;
 }
+
+// ── 誘導先設定保存 ──
+$('saveFunnelBtn').addEventListener('click', async () => {
+  try {
+    await api('/api/affiliate/funnel', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: $('funnelType').value,
+        lineUrl: $('funnelLine').value.trim(),
+        leadMagnet: $('funnelMagnet').value.trim(),
+        blogUrl: $('funnelBlog').value.trim(),
+        brand: $('funnelBrand').value.trim(),
+      }),
+    });
+    alert('誘導先設定を保存しました');
+  } catch (e) { alert('保存失敗: ' + e.message); }
+});
 
 // ── 案件保存 ──
 $('saveOfferBtn').addEventListener('click', async () => {
