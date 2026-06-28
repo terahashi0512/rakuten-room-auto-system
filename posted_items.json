@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "tkms:10000644",
     "kaguzaku:10005192",
     "roomy:10016607",
     "roomy:10017594",
@@ -499,7 +498,8 @@
     "and-a-me:10000006",
     "ken-golf:10000053",
     "anbo:10005214",
-    "candymagic:10000575"
+    "candymagic:10000575",
+    "irisplaza-r:10136708"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
