@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "alpen:10508595",
     "tkms:10000644",
     "kaguzaku:10005192",
     "roomy:10016607",
@@ -499,7 +498,8 @@
     "laughlaugh:10521200",
     "and-a-me:10000006",
     "ken-golf:10000053",
-    "anbo:10005214"
+    "anbo:10005214",
+    "candymagic:10000575"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
