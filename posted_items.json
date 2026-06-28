@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "mobel:10008375",
     "alpen:10507730",
     "alpen:10508595",
     "tkms:10000644",
@@ -499,7 +498,8 @@
     "kyunan:10020376",
     "shibuya-k2009:10029306",
     "laughlaugh:10521200",
-    "and-a-me:10000006"
+    "and-a-me:10000006",
+    "ken-golf:10000053"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
