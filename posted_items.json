@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "futabasp:10012992",
     "sweet-pet:10004793",
     "sweet-pet:10000242",
     "snowdrop:10005714",
@@ -499,7 +498,8 @@
     "e-kurashi:10048736",
     "lifedrinkcompany:10000022",
     "basementonline:10003131",
-    "noris-collection:10008412"
+    "noris-collection:10008412",
+    "ajiro:10002556"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
