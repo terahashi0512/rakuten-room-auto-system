@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "kouragumi:10001834",
     "jukusui:10040728",
     "futabasp:10012992",
     "sweet-pet:10004793",
@@ -499,7 +498,8 @@
     "cream-dot:10026798",
     "yunth:10000122",
     "e-kurashi:10048736",
-    "lifedrinkcompany:10000022"
+    "lifedrinkcompany:10000022",
+    "basementonline:10003131"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
