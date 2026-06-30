@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "sweet-pet:10000242",
     "snowdrop:10005714",
     "sweet-pet:10000177",
     "nyanzaq:10140829",
@@ -499,7 +498,8 @@
     "basementonline:10003131",
     "noris-collection:10008412",
     "ajiro:10002556",
-    "aromacoffee:10056606"
+    "aromacoffee:10056606",
+    "rakutenoriginal-daily:10000046"
   ],
-  "postTypeIndex": 2
+  "postTypeIndex": 0
 }
