@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "snowdrop:10005714",
     "sweet-pet:10000177",
     "nyanzaq:10140829",
     "petdr-x:10000160",
@@ -499,7 +498,8 @@
     "noris-collection:10008412",
     "ajiro:10002556",
     "aromacoffee:10056606",
-    "rakutenoriginal-daily:10000046"
+    "rakutenoriginal-daily:10000046",
+    "kouragumi:10001552"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
