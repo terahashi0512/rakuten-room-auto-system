@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "roomy:10014656",
     "rosylily-shop:10000024",
     "gekiyasukaguya:10025096",
     "sanwadirect:10102117",
@@ -499,7 +498,8 @@
     "basementonline:10003135",
     "suisosum-shop:10000322",
     "vtcosmetic-official:10001456",
-    "craife:10000001"
+    "craife:10000001",
+    "ajiro:10000830"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
