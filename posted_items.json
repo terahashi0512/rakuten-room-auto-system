@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "marin-shop01:10000282",
     "craife:10000198",
     "toucher-home:10000396",
     "roomy:10017571",
@@ -499,7 +498,8 @@
     "toucher-home:10000543",
     "rakuten24:11206670",
     "scope:10105257",
-    "rakkenshop:10000003"
+    "rakkenshop:10000003",
+    "endeavour:10000007"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
