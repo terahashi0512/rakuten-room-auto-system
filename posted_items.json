@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "sanwadirect:10107803",
     "japaneden:10010689",
     "carpetsingu-kaiteki:10120569",
     "kaguin:10014583",
@@ -499,7 +498,8 @@
     "komatirain:10000001",
     "auc-epsomsalt:10000222",
     "ringerhut:10000331",
-    "swarotonya:10001396"
+    "swarotonya:10001396",
+    "natural24:10000004"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
