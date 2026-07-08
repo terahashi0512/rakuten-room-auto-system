@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "japaneden:10010689",
     "carpetsingu-kaiteki:10120569",
     "kaguin:10014583",
     "techou:10001191",
@@ -499,7 +498,8 @@
     "auc-epsomsalt:10000222",
     "ringerhut:10000331",
     "swarotonya:10001396",
-    "natural24:10000004"
+    "natural24:10000004",
+    "vox:10022369"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
