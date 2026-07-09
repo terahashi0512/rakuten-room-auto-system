@@ -80,6 +80,7 @@ export interface RakutenItem {
   endTime?: string;
   reviewAverage?: number;
   reviewCount?: number;
+  affiliateRate?: number;
 }
 
 interface RakutenApiItem {
@@ -293,8 +294,25 @@ function convertRankingItems(items: RakutenRankingApiItem[]): RakutenItem[] {
       hasPointBonus,
       availability: item.availability ?? 1,
       endTime: item.endTime || undefined,
+      reviewAverage: item.reviewAverage,
+      reviewCount: item.reviewCount,
+      affiliateRate: item.affiliateRate,
     };
   });
+}
+
+/**
+ * 売上期待値スコア: レビュー実績×お得情報×アフィリエイト料率の複合評価
+ * - レビュー: 評価×件数の対数（実績のない商品は成約率が低い）
+ * - ポイントアップ/クーポン: クリック率・成約率を直接押し上げる
+ * - アフィリエイト料率: 同じ成約数でも報酬が変わる
+ */
+export function salesScore(item: RakutenItem): number {
+  const review =
+    (item.reviewAverage ?? 0) * Math.log10(Math.max(item.reviewCount ?? 0, 1) + 1);
+  const bonus = (item.hasPointBonus ? 3 : 0) + (item.hasCoupon ? 1.5 : 0);
+  const affiliate = (item.affiliateRate ?? 2) * 1.5;
+  return review + bonus + affiliate;
 }
 
 function convertSearchItems(items: RakutenApiItem[]): RakutenItem[] {
@@ -614,12 +632,13 @@ export async function fetchItems(count: number = 5, excludeCodes: Set<string> = 
     throw new Error(`楽天APIエラー: ${String(err)}`);
   }
 
-  // ポイントアップ・クーポン情報ありを優先ソート
-  filtered.sort((a, b) => {
-    const scoreA = (a.hasPointBonus ? 2 : 0) + (a.hasCoupon ? 1 : 0);
-    const scoreB = (b.hasPointBonus ? 2 : 0) + (b.hasCoupon ? 1 : 0);
-    return scoreB - scoreA;
-  });
+  // レビューがあるのに低評価(3.5未満)の商品は成約率が低いので除外
+  filtered = filtered.filter(
+    (item) => !((item.reviewCount ?? 0) >= 5 && (item.reviewAverage ?? 0) < 3.5)
+  );
+
+  // 売上期待値スコア（レビュー実績×お得情報×アフィリエイト料率）で優先ソート
+  filtered.sort((a, b) => salesScore(b) - salesScore(a));
 
   console.log(`[fetcher] ${filtered.length}件の商品を取得 (フィルタ後), ${count}件を使用`);
   return filtered.slice(0, count);

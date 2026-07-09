@@ -5,6 +5,8 @@ cookies.json
 error.png
 *.log
 data/database.sqlite
+data/database.sqlite-shm
+data/database.sqlite-wal
 data/session.json
 posted_items.json
 data/affiliate/

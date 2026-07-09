@@ -39,6 +39,13 @@ GitHubのリポジトリページ → **Settings → Secrets and variables → A
 | `X_API_SECRET` | `.env`の`X_API_SECRET`の値 | X投稿用（任意） |
 | `X_ACCESS_TOKEN` | `.env`の`X_ACCESS_TOKEN`の値 | X投稿用（任意） |
 | `X_ACCESS_TOKEN_SECRET` | `.env`の`X_ACCESS_TOKEN_SECRET`の値 | X投稿用（任意） |
+| `IG_USER_ID` | InstagramビジネスアカウントID | IGクロス投稿用（任意・[SETUP-SNS.md](SETUP-SNS.md)参照） |
+| `IG_ACCESS_TOKEN` | Instagram Graph API 長期トークン | IGクロス投稿用（任意） |
+| `THREADS_USER_ID` | ThreadsユーザーID | Threadsクロス投稿用（任意） |
+| `THREADS_ACCESS_TOKEN` | Threads API 長期トークン | Threadsクロス投稿用（任意） |
+| `ROOM_PROFILE_URL` | 楽天ROOMプロフィールURL | SNSからの誘導先（任意） |
+
+> 📣 **Instagram/Threadsクロス投稿**: ROOM投稿成功後、同じ商品を自動でIG・Threadsに展開して認知度を拡大します。セットアップ手順は **[SETUP-SNS.md](SETUP-SNS.md)** を参照。未設定なら自動スキップされます。
 
 ---
 

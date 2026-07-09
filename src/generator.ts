@@ -69,6 +69,43 @@ function getPostTypeLabel(postType: PostType): string {
 // 楽天ROOM用プロンプト
 // ============================================================
 
+/** 季節・イベント文脈（成約率を上げる「今買う理由」の材料） */
+function getSeasonContext(): string {
+  const month = new Date().getMonth() + 1;
+  const contexts: Record<number, string> = {
+    1: "新年・新生活準備、大掃除後のリセット収納",
+    2: "花粉対策、新生活準備の駆け込み",
+    3: "新生活・引っ越しシーズン本番",
+    4: "新生活スタート、環境の変化で家事を見直す時期",
+    5: "衣替え、梅雨入り前の準備",
+    6: "梅雨の部屋干し・カビ・湿気対策",
+    7: "夏本番、暑さ対策・冷感グッズ・ボーナス後の買い替え",
+    8: "猛暑対策、夏休みの家事負担増",
+    9: "秋の衣替え、防災月間",
+    10: "衣替え本番、年末に向けた片付けスタート",
+    11: "大掃除の前倒し、ブラックフライデー",
+    12: "大掃除・年末年始準備の需要ピーク",
+  };
+  return contexts[month] ?? "";
+}
+
+/**
+ * 生成された投稿文のクリーニング:
+ * - {{...}}等のプレースホルダー除去（絶対に残さない）
+ * - 前後の引用符・「投稿文:」等の前置き除去
+ */
+export function sanitizeCaption(caption: string): string {
+  let text = caption.trim();
+  // 前置きラベル除去
+  text = text.replace(/^(投稿文|紹介文|キャプション)[:：]\s*/i, "");
+  // 囲み引用符除去
+  text = text.replace(/^["「『]/, "").replace(/["」』]$/, "");
+  // プレースホルダー除去 ({{CTA:...}}, [商品名], 【ここに〇〇】 など)
+  text = text.replace(/\{\{[^}]*\}\}/g, "");
+  text = text.replace(/\[(ここに|〇〇|○○)[^\]]*\]/g, "");
+  return text.trim();
+}
+
 function buildPrompt(item: RakutenItem, postType: PostType): string {
   const bonusInfo: string[] = [];
   if (item.hasPointBonus) {
@@ -118,6 +155,9 @@ ${postTypeInstruction}
 - 価格: ${item.itemPrice.toLocaleString()}円
 - ショップ: ${item.shopName}
 - 商品説明: ${item.itemCaption.slice(0, 300)}${bonusText}
+${item.reviewAverage && item.reviewCount ? `- レビュー: ★${item.reviewAverage} (${item.reviewCount}件) ← 「レビュー${item.reviewCount}件で★${item.reviewAverage}」のような社会的証明として必ず本文に織り込むこと` : ""}
+
+【季節の文脈】いまは「${getSeasonContext()}」の時期。自然に絡められる場合のみ絡めること（無理やりはNG）。
 
 【トップインフルエンサーの書き方ルール（必ず全部守ること）】
 1. 冒頭1〜2行は「思わず止まってしまう」フック。驚き・共感・ビフォーアフター・問いかけのどれかで引き込む
@@ -186,7 +226,7 @@ export async function generateTrendCaptions(
       console.log(`[generator] 「${item.itemName.slice(0, 30)}...」ROOM文生成中 (トレンド: ${keyword})`);
       const caption = await generateWithRetry(client, buildGeminiRoomPrompt(keyword, item), 0.95);
 
-      results.push({ item, caption: caption.trim() });
+      results.push({ item, caption: sanitizeCaption(caption) });
     } catch (err) {
       console.error(`[generator] トレンド生成失敗 「${item.itemName.slice(0, 30)}」:`, err);
     }
@@ -212,7 +252,7 @@ export async function generateCaption(item: RakutenItem, postType: PostType = 2)
   console.log(`[generator] 「${item.itemName.slice(0, 30)}...」の紹介文を生成中 (${getPostTypeLabel(postType)})`);
   const caption = await generateWithRetry(client, prompt, 0.8);
   console.log("[generator] 紹介文生成完了");
-  return caption.trim();
+  return sanitizeCaption(caption);
 }
 
 export async function generateCaptions(

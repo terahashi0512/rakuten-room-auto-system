@@ -7,6 +7,7 @@ import { fetchItems, fetchItemsByKeyword } from "./fetcher";
 import { generateCaptions, generateTrendCaptions, type PostType } from "./generator";
 import { fetchTrendKeyword } from "./trend-fetcher";
 import { postItems } from "./poster";
+import { crossPostToSns } from "./sns";
 import { notifyError } from "./notifiers";
 
 const POSTED_ITEMS_FILE = path.join(process.cwd(), "posted_items.json");
@@ -151,10 +152,18 @@ async function main(): Promise<void> {
     console.error("失敗した商品:\n" + errors);
   }
 
+  // ROOM投稿成功商品をInstagram・Threadsへクロス投稿（失敗しても本体は続行）
+  const succeededItems = captionedItems.filter((_, i) => results[i]?.success);
+  if (succeededItems.length > 0) {
+    try {
+      await crossPostToSns(succeededItems);
+    } catch (err) {
+      console.error("[main] SNSクロス投稿エラー（続行）:", String(err));
+    }
+  }
+
   // 成功した商品を投稿済みリストに追加して保存。投稿タイプを次に進める
-  const successCodes = captionedItems
-    .filter((_, i) => results[i]?.success)
-    .map((c) => c.item.itemCode);
+  const successCodes = succeededItems.map((c) => c.item.itemCode);
   for (const code of successCodes) postedCodes.add(code);
   const nextPostTypeIndex = (postTypeIndex + 1) % 3;
   if (successCodes.length > 0 || true) {
