@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "kaguin:10014583",
     "techou:10001191",
     "mr0477100542:10014669",
     "ideazakkaten:10000307",
@@ -499,7 +498,8 @@
     "swarotonya:10001396",
     "natural24:10000004",
     "vox:10022369",
-    "sheil-store:10020762"
+    "sheil-store:10020762",
+    "swarotonya:10002528"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
