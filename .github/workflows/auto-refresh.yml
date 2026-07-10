@@ -1,0 +1,36 @@
+name: SNSトークン自動リフレッシュ
+
+on:
+  schedule:
+    # 毎週月曜 JST 4:00 → UTC 日曜 19:00
+    - cron: "0 19 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: 依存関係をインストール
+        run: npm ci
+
+      - name: トークンをリフレッシュしてSecretsへ書き戻し
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: npx tsx src/run_refresh.ts
