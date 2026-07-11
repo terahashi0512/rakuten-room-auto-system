@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "shopkurano:10009908",
     "sobani:10000755",
     "tansu:10057242",
     "gekiyasukaguya:10026864",
@@ -499,7 +498,8 @@
     "ideazakkaten:10000307",
     "tsurunishi:10001040",
     "mrw-g:10000005",
-    "rakutenoriginal-daily:10000001"
+    "rakutenoriginal-daily:10000001",
+    "lekeke:10000143"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
