@@ -12,6 +12,7 @@
 import axios from "axios";
 import * as dotenv from "dotenv";
 import type { RakutenItem } from "./fetcher";
+import { generateInstagramCaption } from "./generator";
 import { notifyError } from "./notifiers";
 dotenv.config();
 
@@ -63,11 +64,33 @@ function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)]!;
 }
 
-/** ROOM用キャプションをInstagram用に変換（リンク不可→プロフィール誘導CTA） */
+/** ROOM用キャプションをInstagram用に変換（LLM生成失敗時のフォールバック） */
 export function toInstagramCaption(caption: string): string {
   const cta = `\n\n${pick(IG_CTAS)}`;
   const extraTags = `\n${pick(IG_TAG_SETS)}`;
   return `${caption}${cta}${extraTags}`.slice(0, 2200);
+}
+
+/**
+ * Instagram用の最終キャプションを組み立てる。
+ * IG専用のLLM生成(フック→ストーリー→ベネフィット→保存促し→質問)を最優先し、
+ * 失敗時のみROOM文の変換にフォールバックする。
+ */
+export async function buildInstagramFinalCaption(
+  item: RakutenItem,
+  roomCaption: string
+): Promise<string> {
+  try {
+    const { body, tags } = await generateInstagramCaption(item, roomCaption);
+    const cta = pick(IG_CTAS);
+    const genericTags = pick(IG_TAG_SETS);
+    const finalCaption = `${body}\n\n${cta}\n\n${tags ? tags + " " : ""}${genericTags}`.slice(0, 2200);
+    console.log(`[sns] IG専用キャプション生成完了 (${finalCaption.length}文字):\n${finalCaption}`);
+    return finalCaption;
+  } catch (err) {
+    console.warn("[sns] IG専用キャプション生成失敗、ROOM文変換にフォールバック:", String(err).slice(0, 120));
+    return toInstagramCaption(roomCaption);
+  }
 }
 
 /** ROOM用キャプションをThreads用に変換（500字制限・リンク可） */
@@ -84,7 +107,7 @@ export function toThreadsCaption(caption: string): string {
  * Instagram Graph API で画像投稿
  * 1. メディアコンテナ作成 → 2. ステータス確認 → 3. 公開
  */
-export async function postToInstagram(item: RakutenItem, caption: string): Promise<boolean> {
+export async function postToInstagram(item: RakutenItem, roomCaption: string): Promise<boolean> {
   const IG_USER_ID = env("IG_USER_ID");
   const IG_ACCESS_TOKEN = env("IG_ACCESS_TOKEN");
   if (!IG_USER_ID || !IG_ACCESS_TOKEN) {
@@ -96,6 +119,8 @@ export async function postToInstagram(item: RakutenItem, caption: string): Promi
     return false;
   }
   try {
+    // IG専用キャプション(フック→ストーリー→ベネフィット→保存促し→質問)を生成
+    const finalCaption = await buildInstagramFinalCaption(item, roomCaption);
     const imageUrl = upscaleImageUrl(item.imageUrl);
     console.log("[sns] Instagram: メディアコンテナ作成中...");
     const createRes = await axios.post<{ id: string }>(
@@ -104,7 +129,7 @@ export async function postToInstagram(item: RakutenItem, caption: string): Promi
       {
         params: {
           image_url: imageUrl,
-          caption: toInstagramCaption(caption),
+          caption: finalCaption,
           access_token: IG_ACCESS_TOKEN,
         },
         timeout: 30000,

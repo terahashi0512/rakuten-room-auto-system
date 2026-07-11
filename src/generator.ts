@@ -287,6 +287,71 @@ export async function generateTrendCaptions(
 }
 
 // ============================================================
+// Instagram専用キャプション生成
+// ROOM用短文の流用では「続きを読む」前で興味を惹けないため、
+// IGのアルゴリズムと読者行動(保存・コメント)に最適化した長文を別生成する
+// ============================================================
+
+function buildInstagramPrompt(item: RakutenItem, roomCaption: string): string {
+  const reviewInfo =
+    item.reviewAverage && item.reviewCount
+      ? `- レビュー: ★${item.reviewAverage} (${item.reviewCount}件)`
+      : "";
+  return `あなたはフォロワー数十万人の暮らし・購入品紹介系Instagramインフルエンサーです。以下の商品のInstagram投稿キャプションを作成してください。
+
+【商品情報】
+- 商品名: ${item.itemName}
+- 価格: ${item.itemPrice.toLocaleString()}円
+- ショップ: ${item.shopName}
+- 商品説明: ${item.itemCaption.slice(0, 250)}
+${reviewInfo}
+
+【参考: 楽天ROOM用に書いた紹介文(トーンの参考のみ。コピー・要約はNG)】
+${roomCaption.slice(0, 300)}
+
+【Instagramで伸びるキャプションの構成(必ずこの順で)】
+1. 1行目: スクロールの指が止まるフック。「…続きを読む」の前に見えるのは冒頭1〜2行だけなので、読者の悩み・欲望・好奇心をここで突き刺す(例:「それ、まだ手洗いしてるの…?」「収納オタクが全員買ってるやつ見つけた」)
+2. 空行を挟んで共感ストーリー3〜4行(私も〇〇で困ってた→これに出会って毎日が変わった、を情景が浮かぶ具体性で)
+3. ✅の箇条書きでベネフィットを3つ(スペックではなく「生活がどう変わるか」)
+4. レビュー実績があれば社会的証明を1行(★と件数)
+5. 「あとで見返せるように保存しておくのがおすすめ📌」の一言
+6. 最後にコメントを誘う質問を1つ(例:「みんなは〇〇どうしてる?コメントで教えて👇」)
+
+【ルール】
+- 全体400〜600文字。1〜2文ごとに改行(Instagramは改行の読みやすさが命)
+- 絵文字は各段落に1〜2個。感情の強弱に合わせて
+- 商品リンク・URL・「プロフィールから」等の誘導文は書かない(別途追加するため)
+- ハッシュタグは本文に入れない。本文の後に「---」だけの行を書き、その次の行にこの商品に合うハッシュタグを10個(検索量の多いビッグタグ5個+この商品ならではのニッチタグ5個)
+- AI感・広告臭ゼロ。友達に本気で勧める熱量で
+
+キャプションのみを出力:`;
+}
+
+/**
+ * Instagram専用キャプションを生成。
+ * 戻り値: { body: 本文, tags: 商品特化ハッシュタグ("#a #b ..." or 空) }
+ */
+export async function generateInstagramCaption(
+  item: RakutenItem,
+  roomCaption: string
+): Promise<{ body: string; tags: string }> {
+  if (!GROQ_API_KEY) throw new Error("GROQ_API_KEY が未設定です");
+  const client = new Groq({ apiKey: GROQ_API_KEY });
+  console.log(`[generator] Instagram専用キャプション生成中: ${item.itemName.slice(0, 30)}...`);
+  const raw = await generateWithRetry(client, buildInstagramPrompt(item, roomCaption), 0.9);
+  const cleaned = sanitizeCaption(raw);
+  const [bodyPart, tagPart] = cleaned.split(/\n-{3,}\n/);
+  const body = (bodyPart ?? cleaned).trim();
+  const tags = (tagPart ?? "")
+    .split(/\s+/)
+    .filter((t) => t.startsWith("#"))
+    .slice(0, 12)
+    .join(" ");
+  if (body.length < 100) throw new Error("IGキャプションが短すぎます");
+  return { body, tags };
+}
+
+// ============================================================
 // 公開API
 // ============================================================
 
