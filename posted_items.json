@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "sheil-store:10020551",
     "auc-risecreation:10005320",
     "be-worth-shop:10000613",
     "kurashikenkou:10013644",
@@ -499,7 +498,8 @@
     "naturelab:10003205",
     "shuuemura:10000018",
     "metamoonline:10005699",
-    "cicib:10003314"
+    "cicib:10003314",
+    "rakuten24:10674449"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
