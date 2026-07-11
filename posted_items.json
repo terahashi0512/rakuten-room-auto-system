@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "ysmya:10012363",
     "sheil-store:10020551",
     "auc-risecreation:10005320",
     "be-worth-shop:10000613",
@@ -499,7 +498,8 @@
     "lekeke:10000143",
     "naturelab:10003205",
     "shuuemura:10000018",
-    "metamoonline:10005699"
+    "metamoonline:10005699",
+    "cicib:10003314"
   ],
-  "postTypeIndex": 2
+  "postTypeIndex": 0
 }
