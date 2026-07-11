@@ -89,11 +89,13 @@ async function scanOneFollowerList(
     console.warn(`[auto_follow][scan] ページ遷移失敗: ${influencerId}`);
     return;
   }
-  await randomSleep(2000, 3000);
-
-  if ((await page.locator(SELECTORS.userLinks).count()) === 0) {
-    await randomSleep(2000, 3000);
-  }
+  // ROOMはAngular SPAで描画に時間がかかる（特にCI環境）。
+  // 固定スリープではなくネットワーク静止+ユーザーリンクの出現を明示的に待つ
+  await page.waitForLoadState("networkidle", { timeout: 20000 }).catch(() => {});
+  await page.waitForSelector(SELECTORS.userLinks, { timeout: 20000 }).catch(() => {
+    console.warn(`[auto_follow][scan] ${influencerId}: ユーザーリンクの描画待ちタイムアウト`);
+  });
+  await randomSleep(1500, 2500);
 
   let noNewCount = 0;
   let scrollNum = 0;

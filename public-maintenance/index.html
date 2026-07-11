@@ -172,8 +172,11 @@ async function refresh() {
     $("hook-bars").innerHTML = s.progress.hooks.map(mb).join("");
     $("band-bars").innerHTML = s.progress.bands.map(mb).join("");
     // ワークフロー
+    const wfLabel = (c) => c === "success" ? '<span class="ok">✅ 正常</span>'
+      : (c === "in_progress" || c === "queued" || c === "waiting") ? '<span style="color:#4a69bd;font-weight:bold">⏳ 実行中</span>'
+      : `<span class="ng">⚠ ${c}</span>`;
     $("workflows").innerHTML = s.workflows.map((w) =>
-      `<div class="wf"><span>${w.name}</span><span class="${w.conclusion === "success" ? "ok" : "ng"}">${w.conclusion === "success" ? "✅ 正常" : "⚠ " + w.conclusion}<small style="color:#8b97ab;font-weight:normal"> ${fmtDate(w.updatedAt)}</small></span></div>`
+      `<div class="wf"><span>${w.name}</span><span>${wfLabel(w.conclusion)}<small style="color:#8b97ab;font-weight:normal"> ${fmtDate(w.updatedAt)}</small></span></div>`
     ).join("") || '<div class="note">ワークフロー情報を取得できませんでした</div>';
     // ログ
     $("agent-log").innerHTML = s.recentReports.map((r) => `${r.ok ? "✅" : "❌"} [${fmtDate(r.ts)}] ${r.agent}: ${r.summary}`).join("<br>");

@@ -134,26 +134,35 @@ function recentWorkflows(): WorkflowStatus[] {
 
 function agentHealth() {
   const recent = loadReports().slice(-100);
-  const map = new Map<string, { runs: number; failures: number; lastError: string; lastTs: string }>();
+  const byAgent = new Map<string, typeof recent>();
   for (const r of recent) {
-    const e = map.get(r.agent) ?? { runs: 0, failures: 0, lastError: "", lastTs: "" };
-    e.runs++;
-    e.lastTs = r.ts;
-    if (!r.ok) {
-      e.failures++;
-      e.lastError = r.summary;
-    }
-    map.set(r.agent, e);
+    if (!byAgent.has(r.agent)) byAgent.set(r.agent, []);
+    byAgent.get(r.agent)!.push(r);
   }
-  return [...map.entries()].map(([agent, e]) => ({ agent, ...e }));
+  return [...byAgent.entries()].map(([agent, reports]) => {
+    const failures = reports.filter((r) => !r.ok);
+    // 直近からの連続失敗数（過去の失敗を引きずらない指標）
+    let failStreak = 0;
+    for (let i = reports.length - 1; i >= 0 && !reports[i]!.ok; i--) failStreak++;
+    return {
+      agent,
+      runs: reports.length,
+      failures: failures.length,
+      failStreak,
+      lastOk: reports[reports.length - 1]?.ok ?? true,
+      lastError: failures[failures.length - 1]?.summary ?? "",
+      lastTs: reports[reports.length - 1]?.ts ?? "",
+    };
+  });
 }
 
 /** ペットの状態決定: 表情でシステムの健康がわかる */
 function petStates(health: ReturnType<typeof agentHealth>, pendingQuestion: boolean, workflows: WorkflowStatus[]) {
   const now = Date.now();
   const dayMs = 24 * 60 * 60 * 1000;
-  const failedAgents = health.filter((h) => h.runs >= 3 && h.failures / h.runs >= 0.5);
-  const cookieTrouble = health.some((h) => h.lastError.includes("Cookie"));
+  // 「いま」失敗しているエージェントのみ問題視する（直近2連続失敗以上）
+  const failedAgents = health.filter((h) => h.failStreak >= 2);
+  const cookieTrouble = health.some((h) => !h.lastOk && h.lastError.includes("Cookie"));
   const learn = workflows.find((w) => w.name.includes("学習"));
   const post = workflows.find((w) => w.name.includes("自動投稿"));
 
@@ -173,8 +182,8 @@ function petStates(health: ReturnType<typeof agentHealth>, pendingQuestion: bool
 
   // 分析官: 投稿成功>データ収集中>異常
   let analyst: { pose: string; message: string };
-  const metricsBad = health.find((h) => h.agent === "metrics" && h.failures > 0 && h.lastError !== "");
-  if (metricsBad && metricsBad.failures / Math.max(metricsBad.runs, 1) >= 0.5) {
+  const metricsBad = health.find((h) => h.agent === "metrics" && h.failStreak >= 2);
+  if (metricsBad) {
     analyst = { pose: "sad", message: "いいね計測が失敗続き…ROOMのUI変更かも。Claudeに相談してください" };
   } else if (post && post.conclusion === "success" && now - new Date(post.updatedAt).getTime() < 6 * 60 * 60 * 1000) {
     analyst = { pose: "work", message: "直近の投稿成功!データ収集中です📊" };
