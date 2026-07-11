@@ -25,8 +25,8 @@
     "price": 2490,
     "postType": 2,
     "hour": 19,
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-11T00:14:05.854Z"
+    "likes": 16,
+    "likesUpdatedAt": "2026-07-11T15:37:28.285Z"
   },
   {
     "ts": "2026-07-10T14:30:28.753Z",
@@ -56,8 +56,8 @@
     "price": 3980,
     "postType": 2,
     "hour": 6,
-    "likes": 4,
-    "likesUpdatedAt": "2026-07-11T00:14:05.854Z"
+    "likes": 9,
+    "likesUpdatedAt": "2026-07-11T15:37:28.285Z"
   },
   {
     "ts": "2026-07-10T22:00:16.423Z",
@@ -88,7 +88,9 @@
     "postType": 2,
     "hour": 14,
     "hook": "empathy",
-    "captionHead": "わかる人にはわかるやつ、洗面所のハンドソープが終わ"
+    "captionHead": "わかる人にはわかるやつ、洗面所のハンドソープが終わ",
+    "likes": 6,
+    "likesUpdatedAt": "2026-07-11T15:37:28.285Z"
   },
   {
     "ts": "2026-07-11T09:18:36.568Z",
@@ -99,7 +101,9 @@
     "postType": 3,
     "hour": 18,
     "hook": "ranking",
-    "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション"
+    "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
+    "likes": 10,
+    "likesUpdatedAt": "2026-07-11T15:37:28.285Z"
   },
   {
     "ts": "2026-07-11T10:08:43.451Z",
@@ -110,7 +114,9 @@
     "postType": 1,
     "hour": 19,
     "hook": "surprise",
-    "captionHead": "え、待って。シュウウエムラのベストセラーキットがこ"
+    "captionHead": "え、待って。シュウウエムラのベストセラーキットがこ",
+    "likes": 11,
+    "likesUpdatedAt": "2026-07-11T15:37:28.285Z"
   },
   {
     "ts": "2026-07-11T13:24:28.679Z",
@@ -121,7 +127,9 @@
     "postType": 2,
     "hour": 22,
     "hook": "surprise",
-    "captionHead": "え、待って。ロリータファッションの最高峰メタモルフ"
+    "captionHead": "え、待って。ロリータファッションの最高峰メタモルフ",
+    "likes": 3,
+    "likesUpdatedAt": "2026-07-11T15:37:28.285Z"
   },
   {
     "ts": "2026-07-11T15:03:13.773Z",

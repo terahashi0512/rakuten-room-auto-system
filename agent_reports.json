@@ -334,5 +334,23 @@
     "agent": "promoter",
     "ok": true,
     "summary": "IG=成功, Threads=成功"
+  },
+  {
+    "ts": "2026-07-11T15:37:28.287Z",
+    "agent": "metrics",
+    "ok": true,
+    "summary": "20件抽出、履歴6件のいいね数を更新"
+  },
+  {
+    "ts": "2026-07-11T15:37:28.289Z",
+    "agent": "analyst",
+    "ok": true,
+    "summary": "履歴13件(計測済8)を集計。ジャンル10種"
+  },
+  {
+    "ts": "2026-07-11T15:37:30.767Z",
+    "agent": "commander",
+    "ok": true,
+    "summary": "第2世代へ更新 (LLM)、警告1件"
   }
 ]
