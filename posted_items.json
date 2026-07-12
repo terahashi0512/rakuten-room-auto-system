@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "auc-risecreation:10005320",
     "be-worth-shop:10000613",
     "kurashikenkou:10013644",
     "ignis:10000557",
@@ -499,7 +498,8 @@
     "shuuemura:10000018",
     "metamoonline:10005699",
     "cicib:10003314",
-    "rakuten24:10674449"
+    "rakuten24:10674449",
+    "brita:10000161"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
