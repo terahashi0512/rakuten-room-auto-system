@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "be-worth-shop:10000613",
     "kurashikenkou:10013644",
     "ignis:10000557",
     "charisma-bon:10038163",
@@ -499,7 +498,8 @@
     "metamoonline:10005699",
     "cicib:10003314",
     "rakuten24:10674449",
-    "brita:10000161"
+    "brita:10000161",
+    "mtgec-beauty:10002177"
   ],
-  "postTypeIndex": 2
+  "postTypeIndex": 0
 }
