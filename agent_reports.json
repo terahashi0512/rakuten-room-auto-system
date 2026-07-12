@@ -424,5 +424,29 @@
     "agent": "promoter",
     "ok": true,
     "summary": "IG=成功, Threads=成功"
+  },
+  {
+    "ts": "2026-07-12T13:20:23.060Z",
+    "agent": "scout",
+    "ok": true,
+    "summary": "1件選定 (季節:防災セット)"
+  },
+  {
+    "ts": "2026-07-12T13:20:24.525Z",
+    "agent": "copywriter",
+    "ok": true,
+    "summary": "1件生成 (タイプ3)"
+  },
+  {
+    "ts": "2026-07-12T13:22:04.828Z",
+    "agent": "poster",
+    "ok": true,
+    "summary": "成功1件/失敗0件"
+  },
+  {
+    "ts": "2026-07-12T13:22:53.012Z",
+    "agent": "promoter",
+    "ok": true,
+    "summary": "IG=成功, Threads=成功"
   }
 ]
