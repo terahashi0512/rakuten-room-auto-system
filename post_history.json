@@ -25,8 +25,8 @@
     "price": 2490,
     "postType": 2,
     "hour": 19,
-    "likes": 22,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 23,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-10T14:30:28.753Z",
@@ -56,8 +56,8 @@
     "price": 3980,
     "postType": 2,
     "hour": 6,
-    "likes": 10,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 11,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-10T22:00:16.423Z",
@@ -89,8 +89,8 @@
     "hour": 14,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつ、洗面所のハンドソープが終わ",
-    "likes": 7,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 8,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-11T09:18:36.568Z",
@@ -102,8 +102,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 11,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 25,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-11T10:08:43.451Z",
@@ -152,8 +152,8 @@
     "hour": 7,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 11,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 25,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-12T05:51:10.418Z",
@@ -176,8 +176,8 @@
     "hour": 18,
     "hook": "loss",
     "captionHead": "これ知らないと年間10万円損してるかも…💸 だっ",
-    "likes": 11,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 16,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-12T13:22:53.014Z",
@@ -189,8 +189,8 @@
     "hour": 22,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつですが、災害が起こったらトイ",
-    "likes": 6,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 8,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-12T15:07:14.356Z",
@@ -202,8 +202,8 @@
     "hour": 0,
     "hook": "beforeafter",
     "captionHead": "先月までの私: コンタクトレンズの度数が合わなくて",
-    "likes": 3,
-    "likesUpdatedAt": "2026-07-12T15:41:40.403Z"
+    "likes": 10,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-12T22:59:56.567Z",
@@ -214,7 +214,9 @@
     "postType": 1,
     "hour": 7,
     "hook": "question",
-    "captionHead": "まだ収納用品でストレス感じてるの？🤯 私もそんな"
+    "captionHead": "まだ収納用品でストレス感じてるの？🤯 私もそんな",
+    "likes": 9,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-13T06:02:12.142Z",
@@ -247,7 +249,9 @@
     "postType": 1,
     "hour": 23,
     "hook": "beforeafter",
-    "captionHead": "先月までの私: 衣類が散らかって部屋が狭くてストレ"
+    "captionHead": "先月までの私: 衣類が散らかって部屋が狭くてストレ",
+    "likes": 5,
+    "likesUpdatedAt": "2026-07-13T17:00:31.504Z"
   },
   {
     "ts": "2026-07-13T16:41:18.506Z",
