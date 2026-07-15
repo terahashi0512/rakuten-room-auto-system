@@ -102,8 +102,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 29,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-11T10:08:43.451Z",
@@ -152,8 +152,8 @@
     "hour": 7,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 29,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-12T05:51:10.418Z",
@@ -176,8 +176,8 @@
     "hour": 18,
     "hook": "loss",
     "captionHead": "これ知らないと年間10万円損してるかも…💸 だっ",
-    "likes": 22,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 24,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-12T13:22:53.014Z",
@@ -189,8 +189,8 @@
     "hour": 22,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつですが、災害が起こったらトイ",
-    "likes": 10,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 12,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-12T15:07:14.356Z",
@@ -202,8 +202,8 @@
     "hour": 0,
     "hook": "beforeafter",
     "captionHead": "先月までの私: コンタクトレンズの度数が合わなくて",
-    "likes": 12,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 13,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-12T22:59:56.567Z",
@@ -215,8 +215,8 @@
     "hour": 7,
     "hook": "question",
     "captionHead": "まだ収納用品でストレス感じてるの？🤯 私もそんな",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-13T06:02:12.142Z",
@@ -250,8 +250,8 @@
     "hour": 23,
     "hook": "beforeafter",
     "captionHead": "先月までの私: 衣類が散らかって部屋が狭くてストレ",
-    "likes": 12,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 13,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-13T16:41:18.506Z",
@@ -298,8 +298,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りした防災グッズの逸品を見つけた！🙌 レビ",
-    "likes": 10,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 12,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-14T13:47:03.564Z",
@@ -311,8 +311,8 @@
     "hour": 22,
     "hook": "surprise",
     "captionHead": "え、待って。こんなの楽天で見つけたの！？ロイヤルカ",
-    "likes": 5,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 11,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-14T15:31:19.748Z",
@@ -324,8 +324,8 @@
     "hour": 0,
     "hook": "number",
     "captionHead": "10387件のレビューで★4.36！🎉 クーポン",
-    "likes": 4,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 10,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-14T23:05:46.361Z",
@@ -336,7 +336,9 @@
     "postType": 1,
     "hour": 8,
     "hook": "question",
-    "captionHead": "まだ暑い夏が続いてるよね😓 その夏の毎日を快適に"
+    "captionHead": "まだ暑い夏が続いてるよね😓 その夏の毎日を快適に",
+    "likes": 13,
+    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
   },
   {
     "ts": "2026-07-15T05:26:00.323Z",
