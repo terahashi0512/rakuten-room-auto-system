@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "missh-kissh:10000141",
     "tenkapas:10010258",
     "sheil-store:10020689",
     "sheil-store:10020490",
@@ -499,7 +498,8 @@
     "kiroran:10000196",
     "rakuten24:11342601",
     "rakuten24:11148573",
-    "matthewmark:10000148"
+    "matthewmark:10000148",
+    "gensenstore:10000405"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
