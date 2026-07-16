@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "rack-kan:10086028",
     "yamayuu:10018117",
     "rcmdin:11411227",
     "sanwadirect:10102062",
@@ -499,7 +498,8 @@
     "sakauchi-shop:10010685",
     "azusa:10000109",
     "futontanaka:10024022",
-    "jewelrycastle:10007149"
+    "jewelrycastle:10007149",
+    "kiroran:10000196"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
