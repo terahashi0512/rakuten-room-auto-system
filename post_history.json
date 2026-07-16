@@ -89,8 +89,8 @@
     "hour": 14,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつ、洗面所のハンドソープが終わ",
-    "likes": 12,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 13,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-11T09:18:36.568Z",
@@ -102,8 +102,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 29,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-11T10:08:43.451Z",
@@ -115,8 +115,8 @@
     "hour": 19,
     "hook": "surprise",
     "captionHead": "え、待って。シュウウエムラのベストセラーキットがこ",
-    "likes": 19,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 20,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-11T13:24:28.679Z",
@@ -128,8 +128,8 @@
     "hour": 22,
     "hook": "surprise",
     "captionHead": "え、待って。ロリータファッションの最高峰メタモルフ",
-    "likes": 11,
-    "likesUpdatedAt": "2026-07-14T16:04:15.812Z"
+    "likes": 12,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-11T15:03:13.773Z",
@@ -152,8 +152,8 @@
     "hour": 7,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 29,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-12T05:51:10.418Z",
@@ -189,8 +189,8 @@
     "hour": 22,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつですが、災害が起こったらトイ",
-    "likes": 12,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-12T15:07:14.356Z",
@@ -202,8 +202,8 @@
     "hour": 0,
     "hook": "beforeafter",
     "captionHead": "先月までの私: コンタクトレンズの度数が合わなくて",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 16,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-12T22:59:56.567Z",
@@ -298,8 +298,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りした防災グッズの逸品を見つけた！🙌 レビ",
-    "likes": 12,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-14T13:47:03.564Z",
@@ -311,8 +311,8 @@
     "hour": 22,
     "hook": "surprise",
     "captionHead": "え、待って。こんなの楽天で見つけたの！？ロイヤルカ",
-    "likes": 11,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 13,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-14T15:31:19.748Z",
@@ -324,8 +324,8 @@
     "hour": 0,
     "hook": "number",
     "captionHead": "10387件のレビューで★4.36！🎉 クーポン",
-    "likes": 10,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 13,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-14T23:05:46.361Z",
@@ -337,8 +337,8 @@
     "hour": 8,
     "hook": "question",
     "captionHead": "まだ暑い夏が続いてるよね😓 その夏の毎日を快適に",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-15T16:09:09.121Z"
+    "likes": 16,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-15T05:26:00.323Z",
@@ -393,7 +393,9 @@
     "postType": 3,
     "hour": 8,
     "hook": "empathy",
-    "captionHead": "わかる人にはわかるやつ😊 だけど、夏の間もらえる"
+    "captionHead": "わかる人にはわかるやつ😊 だけど、夏の間もらえる",
+    "likes": 17,
+    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
   },
   {
     "ts": "2026-07-16T05:35:23.875Z",
