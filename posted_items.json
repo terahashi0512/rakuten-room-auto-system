@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "alamode:10022254",
     "akol:10000484",
     "rakuten24:11148571",
     "rakuten24:11148568",
@@ -499,7 +498,8 @@
     "rakuten24:11128644",
     "yumenomori:10000233",
     "irisplaza-r:10170526",
-    "azusa:10000130"
+    "azusa:10000130",
+    "tsutsumi:10003467"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
