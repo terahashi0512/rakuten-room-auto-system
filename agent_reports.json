@@ -1,23 +1,5 @@
 [
   {
-    "ts": "2026-07-10T16:48:16.125Z",
-    "agent": "metrics",
-    "ok": false,
-    "summary": "計測失敗: Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
-  },
-  {
-    "ts": "2026-07-10T16:48:16.126Z",
-    "agent": "analyst",
-    "ok": true,
-    "summary": "履歴5件(計測済0)を集計。ジャンル5種"
-  },
-  {
-    "ts": "2026-07-10T16:48:17.212Z",
-    "agent": "commander",
-    "ok": true,
-    "summary": "第1世代へ更新 (LLM)、警告0件"
-  },
-  {
     "ts": "2026-07-10T21:36:53.396Z",
     "agent": "scout",
     "ok": true,
@@ -1198,5 +1180,23 @@
     "agent": "commander",
     "ok": true,
     "summary": "第9世代へ更新 (LLM)、警告0件"
+  },
+  {
+    "ts": "2026-07-18T22:56:47.363Z",
+    "agent": "scout",
+    "ok": true,
+    "summary": "1件選定 (時短ガジェット・小型家電)"
+  },
+  {
+    "ts": "2026-07-18T22:56:48.410Z",
+    "agent": "copywriter",
+    "ok": true,
+    "summary": "1件生成 (タイプ3)"
+  },
+  {
+    "ts": "2026-07-18T22:57:16.537Z",
+    "agent": "poster",
+    "ok": false,
+    "summary": "成功0件/失敗1件 (Error: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://item.rakuten.co.jp/bo)"
   }
 ]
