@@ -89,8 +89,8 @@
     "hour": 14,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつ、洗面所のハンドソープが終わ",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-11T09:18:36.568Z",
@@ -102,8 +102,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 30,
-    "likesUpdatedAt": "2026-07-17T16:03:16.560Z"
+    "likes": 15,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-11T10:08:43.451Z",
@@ -152,8 +152,8 @@
     "hour": 7,
     "hook": "ranking",
     "captionHead": "殿堂入りレベルの人気商品が楽天で見つけてテンション",
-    "likes": 30,
-    "likesUpdatedAt": "2026-07-17T16:03:16.560Z"
+    "likes": 15,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-12T05:51:10.418Z",
@@ -189,8 +189,8 @@
     "hour": 22,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつですが、災害が起こったらトイ",
-    "likes": 14,
-    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
+    "likes": 15,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-12T15:07:14.356Z",
@@ -202,8 +202,8 @@
     "hour": 0,
     "hook": "beforeafter",
     "captionHead": "先月までの私: コンタクトレンズの度数が合わなくて",
-    "likes": 18,
-    "likesUpdatedAt": "2026-07-18T15:37:16.183Z"
+    "likes": 12,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-12T22:59:56.567Z",
@@ -298,8 +298,8 @@
     "hour": 18,
     "hook": "ranking",
     "captionHead": "殿堂入りした防災グッズの逸品を見つけた！🙌 レビ",
-    "likes": 14,
-    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
+    "likes": 15,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-14T13:47:03.564Z",
@@ -311,8 +311,8 @@
     "hour": 22,
     "hook": "surprise",
     "captionHead": "え、待って。こんなの楽天で見つけたの！？ロイヤルカ",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-16T16:03:39.895Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-14T15:31:19.748Z",
@@ -337,8 +337,8 @@
     "hour": 8,
     "hook": "question",
     "captionHead": "まだ暑い夏が続いてるよね😓 その夏の毎日を快適に",
-    "likes": 18,
-    "likesUpdatedAt": "2026-07-18T15:37:16.183Z"
+    "likes": 12,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-15T05:26:00.323Z",
@@ -394,8 +394,8 @@
     "hour": 8,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつ😊 だけど、夏の間もらえる",
-    "likes": 21,
-    "likesUpdatedAt": "2026-07-18T15:37:16.183Z"
+    "likes": 22,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-16T05:35:23.875Z",
@@ -466,8 +466,8 @@
     "hour": 14,
     "hook": "empathy",
     "captionHead": "わかる人にはわかるやつ…🙋 掛けるだけの洗濯洗剤",
-    "likes": 13,
-    "likesUpdatedAt": "2026-07-17T16:03:16.560Z"
+    "likes": 14,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-17T09:48:04.577Z",
@@ -490,8 +490,8 @@
     "hour": 22,
     "hook": "number",
     "captionHead": "9455件のレビューで★4.45！今は夏本番、暑さ",
-    "likes": 14,
-    "likesUpdatedAt": "2026-07-18T15:37:16.183Z"
+    "likes": 15,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-17T15:20:38.772Z",
@@ -503,8 +503,8 @@
     "hour": 0,
     "hook": "loss",
     "captionHead": "これ知らないと年間5,000円損してるかも…🤯楽",
-    "likes": 16,
-    "likesUpdatedAt": "2026-07-18T15:37:16.183Z"
+    "likes": 22,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-18T09:17:18.765Z",
@@ -515,7 +515,9 @@
     "postType": 1,
     "hour": 18,
     "hook": "ranking",
-    "captionHead": "🎯 ポイント3倍獲得チャンス！楽天ランキング1位"
+    "captionHead": "🎯 ポイント3倍獲得チャンス！楽天ランキング1位",
+    "likes": 1,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-18T15:03:22.341Z",
@@ -537,7 +539,9 @@
     "postType": 1,
     "hour": 18,
     "hook": "beforeafter",
-    "captionHead": "先月までの私: 布団を収納するのに苦労してた🤯 "
+    "captionHead": "先月までの私: 布団を収納するのに苦労してた🤯 ",
+    "likes": 5,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-19T13:20:50.600Z",
@@ -548,7 +552,9 @@
     "postType": 1,
     "hour": 22,
     "hook": "ranking",
-    "captionHead": "🎯 ポイント3倍獲得チャンス！リピーター続出の殿"
+    "captionHead": "🎯 ポイント3倍獲得チャンス！リピーター続出の殿",
+    "likes": 1,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   },
   {
     "ts": "2026-07-19T15:04:57.599Z",
@@ -559,6 +565,8 @@
     "postType": 2,
     "hour": 0,
     "hook": "story",
-    "captionHead": "深夜2時、またダニと格闘してた…😩 私、ダニ対策"
+    "captionHead": "深夜2時、またダニと格闘してた…😩 私、ダニ対策",
+    "likes": 1,
+    "likesUpdatedAt": "2026-07-19T15:37:47.687Z"
   }
 ]
