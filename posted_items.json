@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "swarotonya:10001516",
     "happiness-2020:10000005",
     "mujirushi-ryohin:10006795",
     "bugyo:10004784",
@@ -499,7 +498,8 @@
     "yutori:10006493",
     "danitori:10000004",
     "tsutsumi:10014152",
-    "roomy:10016470"
+    "roomy:10016470",
+    "lesbliss:10000005"
   ],
-  "postTypeIndex": 0
+  "postTypeIndex": 1
 }
