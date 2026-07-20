@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "mujirushi-ryohin:10006795",
     "bugyo:10004784",
     "yamayuu:10018120",
     "charisma-bon:10038045",
@@ -499,7 +498,8 @@
     "tsutsumi:10014152",
     "roomy:10016470",
     "lesbliss:10000005",
-    "i-need-more-shoes:10000565"
+    "i-need-more-shoes:10000565",
+    "exception5251:10000042"
   ],
-  "postTypeIndex": 2
+  "postTypeIndex": 0
 }
