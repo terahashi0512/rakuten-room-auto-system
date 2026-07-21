@@ -1,6 +1,5 @@
 {
   "postedItemCodes": [
-    "yamayuu:10018120",
     "charisma-bon:10038045",
     "bon-kagu:10009688",
     "shopch-r:10000216",
@@ -499,7 +498,8 @@
     "lesbliss:10000005",
     "i-need-more-shoes:10000565",
     "exception5251:10000042",
-    "netbaby:10035957"
+    "netbaby:10035957",
+    "shimin2:10000782"
   ],
-  "postTypeIndex": 1
+  "postTypeIndex": 2
 }
