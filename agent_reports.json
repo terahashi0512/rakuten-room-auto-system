@@ -1,11 +1,5 @@
 [
   {
-    "ts": "2026-07-18T13:15:50.892Z",
-    "agent": "copywriter",
-    "ok": true,
-    "summary": "1件生成 (タイプ3)"
-  },
-  {
     "ts": "2026-07-18T13:16:22.253Z",
     "agent": "poster",
     "ok": false,
@@ -1195,6 +1189,12 @@
   },
   {
     "ts": "2026-08-17T14:57:17.299Z",
+    "agent": "scout",
+    "ok": false,
+    "summary": "Error: フィルタリング後に使用可能な商品が0件でした"
+  },
+  {
+    "ts": "2026-08-17T22:55:14.983Z",
     "agent": "scout",
     "ok": false,
     "summary": "Error: フィルタリング後に使用可能な商品が0件でした"
