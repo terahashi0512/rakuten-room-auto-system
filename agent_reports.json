@@ -1,11 +1,5 @@
 [
   {
-    "ts": "2026-07-20T10:41:50.026Z",
-    "agent": "promoter",
-    "ok": true,
-    "summary": "IG=成功, Threads=成功"
-  },
-  {
     "ts": "2026-07-20T14:06:39.401Z",
     "agent": "scout",
     "ok": true,
@@ -1195,6 +1189,12 @@
   },
   {
     "ts": "2026-08-25T22:26:09.282Z",
+    "agent": "scout",
+    "ok": false,
+    "summary": "Error: フィルタリング後に使用可能な商品が0件でした"
+  },
+  {
+    "ts": "2026-08-26T03:43:53.940Z",
     "agent": "scout",
     "ok": false,
     "summary": "Error: フィルタリング後に使用可能な商品が0件でした"
